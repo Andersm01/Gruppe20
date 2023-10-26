@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.box{
+    background-color: rgb(58, 58, 58);
+    min-height: 200 px;
+}
+
+.container{
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-areas: 
+    "logo" 
+    "punkt"
+    "menypunkt"
+    "main"
+    "footer";
+}
+
+.container > *{
+    background-color: rgb(187, 191, 194);
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+header{
+    grid-area: logo;
+} 
+
+#innstillingerOgBruker ul{
+    grid-area: punkt;
+    display: flex;
+    list-style: none;
+    justify-content: end;
+    flex-direction: column;
+    padding: 0;
+}
+
+#innstillingerOgBruker li a{
+    text-decoration: none;
+    color: black;
+}
+
+#meny ul {    
+    grid-area: menypunkt;
+    display: inline-block;
+    list-style: none;
+    justify-content: end;
+    flex-direction: column;
+    padding: 0;
+}
+
+#meny li a {
+    text-decoration: none;
+    color: black;
+    
+}
+
+@media only screen and (min-width:430px){
+    main{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 250px);
+        gap: 1rem;
+    }
+   
+    .container{ 
+        grid-template-areas: "logo punt"
+                            "menypunkt menypunkt"
+                            "main main"
+                            "footer footer";
+    }
+}
+
+
+@media only screen and (min-width:1000px){
+    main{
+        display: grid;
+        grid-template-columns: repeat(4,250px);
+        grid-template-rows: repeat(5, 250px);
+        gap: 1rem;
+    } 
+    .container{
+        grid-template-areas: "logo punkt punkt"
+                            "menypunkt menypunkt menypunkt"
+                            "main main main"
+                            "footer footer footer";
+    }
+
+    #menu{
+        flex-direction: row;
+    } 
+
+}
