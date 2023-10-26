@@ -5,3 +5,5 @@ FERDIG DA!
 
 EZ FOR MEG
 hei
+
+anders er homo 
