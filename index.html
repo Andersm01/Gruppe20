@@ -27,7 +27,7 @@
 
             <article class="main2"><h3>Hei</h3>
                 <p>Hei dette er en tur, Hei dette er en tur, iasdias asoijdas asd jomasda</p>
-                <button>book</button>
+                <button onclick="moveArticle('article1')">Move</button>
             </article>
 
             <article class="main3"><img src="https://novasolo-i01.mycdn.no/mysimgprod/novasolo_mystore_no/images/83241_44792SC_Tiger__80x80_bilde_Plexiglass__1.jpg/w1200h1200.jpg" alt="Bilde"></article>
@@ -52,6 +52,19 @@
         </footer>
         
     </div>
+
+    <script>
+        function moveArticle(articleId) {
+            // Get the article element by its ID
+            const article = document.getElementById(articleId);
+
+            // Find the target location where you want to move the article
+            const targetLocation = document.getElementById('targetLocation'); // Replace with the actual ID of the target location
+
+            // Append the article to the target location
+            targetLocation.appendChild(article);
+        }
+    </script>
     
 </body>
 </html>
