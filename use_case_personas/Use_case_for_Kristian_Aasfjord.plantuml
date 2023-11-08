@@ -1,0 +1,14 @@
+@startuml Kristian Aasfjord
+left to right direction
+:Kristian: --> (søker etter turer i nærområdet)
+:Kristian: --> (trykker på øsnket tur)
+:Kristian: --> (bestiller tur)
+:Kristian: --> (oppretter ny bruker)
+:Kristian: --> (logger inn)
+:Kristian: --> (velger betalings måte)
+:Kristian: --> (betaler)
+:Kristian: --> (skiver en anmeldelse på turen)
+
+/' for å se på fysisk use case diagrammet trykk Alt+D '/
+
+@enduml

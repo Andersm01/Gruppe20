@@ -1,0 +1,13 @@
+@startuml Kari Johansen
+left to right direction
+:Kari: --> (logger inn)
+:Kari: --> (søker etter tilpasset tur)
+:Kari: --> (går inn på ønsket tur)
+:Kari: --> (bestiller tur)
+:Kari: --> (legger til betalings måte)
+:Kari: --> (betaler)
+:Kari: --> (skiver en anmeldelse på turen)
+
+/' for å se på fysisk use case diagrammet trykk Alt+D '/
+
+@enduml

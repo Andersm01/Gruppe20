@@ -1,0 +1,14 @@
+@startuml Jason Johnson
+left to right direction
+:Jason: --> (søker etter tur)
+:Jason: --> (trykker på tidligere anmeldelser)
+:Jason: --> (lager bruker)
+:Jason: --> (logger inn)
+:Jason: --> (bestiller tur)
+:Jason: --> (legger til betalingsmetode)
+:Jason: --> (betaler)
+:Jason: --> (skiver en anmeldelse på turen)
+
+/' for å se på fysisk use case diagrammet trykk Alt+D '/
+
+@enduml

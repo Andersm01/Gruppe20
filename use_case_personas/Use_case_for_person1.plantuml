@@ -1,0 +1,13 @@
+@startuml person1
+left to right direction
+:admin: --> (logger inn)
+:admin: --> (trykker på mine turer)
+:admin: --> (sletter tur)
+:admin: --> (sender mail til alle som har bestilt den slettede turen)
+:admin: --> (Lager en ny tur)
+:admin: --> (sender ut ny tur)
+:admin: --> (Sender tur bekreftelse på mail til alle som har meldt seg på)
+
+/' for å se på fysisk use case diagrammet trykk Alt+D '/
+
+@enduml

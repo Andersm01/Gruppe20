@@ -1,0 +1,13 @@
+@startuml Benjamin Bola
+left to right direction
+:Benjamin: --> (oppretter ny bruker)
+:Benjamin: --> (logger inn)
+:Benjamin: --> (søker etter tur)
+:Benjamin: --> (bestiller tur)
+:Benjamin: --> (legger tilbetalingsmåte)
+:Benjamin: --> (betaler)
+:Benjamin: --> (skiver en anmeldelse på turen)
+
+/' for å se på fysisk use case diagrammet trykk Alt+D '/
+
+@enduml
