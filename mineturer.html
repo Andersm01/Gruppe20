@@ -1,43 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>HermanDoc</title>
+  <meta charset="UTF-8">
+  <title>Mine Turer</title>
+  <style>
+    /* ... (din eksisterende CSS) ... */
+
+    /* Ny stil for tur-elementer */
+    .tour {
+      display: flex;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    .tour img {
+      width: 150px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .tour-details {
+      flex: 1;
+    }
+
+    .tour-description {
+      margin-bottom: 10px;
+    }
+
+    .remove-btn {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+
+    .remove-btn:hover {
+      background-color: #e60000;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 18px;
+    }
+
+    .navigation {
+      display: flex;
+      margin-right: 75%;
+      align-items: center;
+    }
+
+    .navigation > a {
+      margin-right: 10px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    
+
+
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1><img src="" alt="Logo"></h1>
-            
-            <ul class="navbar">
-                <li><a href="index.html">Hjem</a></li>
-                <li>Filter</li>
-                <li><a href="mineturer.html">Mine Turer</a></li>
-                <li class="hei"><img src="" alt="innstillinger"></li>
-            </ul>
-    
-        </header>
 
+  <header>
+    <div class="logo">
+        <a href="index.html"><img src="https://images-platform.99static.com//8yM6syZlzBYKW840uJlMJ-V4Y4k=/264x145:1326x1207/fit-in/500x500/99designs-contests-attachments/75/75835/attachment_75835259" alt="BaijanTours Logo"></a>
+      </div>
+      <div class="navigation">
+        <a href="index.html">Hjem</a>
+        <a href="#">Filter</a>
+        <a href="mineturer.html">Mineturer</a>
+      </div>
+  </header>
 
-        <main>
-          
-        
-
-        </main>
-
-
-        <footer>
-            <section>
-                <h2>Kontakt oss:</h2>
-                <p>proto@gmail.com</p>
-            </section>
-
-        </footer>
-        
+  <main>
+    <h1>Mine Turer</h1>
+    <div id="turer-liste">
+      <!-- Turer vil vises her -->
     </div>
-    
+  </main>
+
+  <footer>
+    <!-- ... (din eksisterende footer) ... -->
+  </footer>
+
+  <script>
+    window.onload = function() {
+    var turerDiv = document.getElementById('turer-liste');
+    var mineturer = JSON.parse(localStorage.getItem('mineturer')) || [];
+
+    mineturer.forEach(function(tur, index) {
+      var turElement = document.createElement('div');
+      turElement.classList.add('tour');
+      turElement.innerHTML = `
+        <img src="${tur.bildeUrl}" alt="${tur.tittel}">
+        <div class="tour-details">
+          <h2 class="tour-title">${tur.tittel}</h2>
+          <p class="tour-description">${tur.beskrivelse}</p>
+          <button class="remove-btn" data-index="${index}">Fjern</button>
+        </div>
+      `;
+      turerDiv.appendChild(turElement);
+    });
+
+    turerDiv.addEventListener('click', function(event) {
+      if (event.target.classList.contains('remove-btn')) {
+        var indexToRemove = event.target.dataset.index;
+        mineturer.splice(indexToRemove, 1);
+        localStorage.setItem('mineturer', JSON.stringify(mineturer));
+        event.target.closest('.tour').remove(); // Fjerner hele tour-elementet
+      }
+    });
+  };
+  </script>
 </body>
 </html>

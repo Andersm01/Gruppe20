@@ -1,62 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>HermanDoc</title>
+  <meta charset="UTF-8">
+  <title>Salg av turer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 18px;
+    }
+
+    .navigation {
+      display: flex;
+      margin-right: 75%;
+      align-items: center;
+    }
+
+    .navigation > a {
+      margin-right: 10px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .tour {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .tour img {
+      width: 150px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .tour-info {
+      flex: 1;
+    }
+
+    .tour-description {
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: block;
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 4px;
+      width: 50px;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1><img src="" alt="Logo"></h1>
-            
-            <ul class="navbar">
-                <li><a href="index.html">Hjem</a></li>
-                <li>Filter</li>
-                <li><a href="mineturer.html">Mine Turer</a></li>
-                <li class="hei"><img src="" alt="innstillinger"></li>
-            </ul>
-    
-        </header>
 
-
-        <main>
-            <article class="main1"><img src="https://novasolo-i01.mycdn.no/mysimgprod/novasolo_mystore_no/images/83241_44792SC_Tiger__80x80_bilde_Plexiglass__1.jpg/w1200h1200.jpg" alt="Bilde"></article>
-
-            <article class="main2"><h3>Hei</h3>
-                <p>Hei dette er en tur, Hei dette er en tur, iasdias asoijdas asd jomasda</p>
-                <button onclick="moveArticle('article1')">Move</button>
-            </article>
-
-            <article class="main3"><img src="https://novasolo-i01.mycdn.no/mysimgprod/novasolo_mystore_no/images/83241_44792SC_Tiger__80x80_bilde_Plexiglass__1.jpg/w1200h1200.jpg" alt="Bilde"></article>
-
-            <article class="main4"><h3>Hei</h3>
-                <p>Hei dette er en tur, iasdias asoijdas asd jomasda
-
-                </p>
-                <button>book</button>
-            </article>
-        
-
-        </main>
-
-
-        <footer>
-            <section>
-                <h2>Kontakt oss:</h2>
-                <p>proto@gmail.com</p>
-            </section>
-
-        </footer>
-        
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="https://images-platform.99static.com//8yM6syZlzBYKW840uJlMJ-V4Y4k=/264x145:1326x1207/fit-in/500x500/99designs-contests-attachments/75/75835/attachment_75835259" alt="BaijanTours Logo"></a>
     </div>
-    <button id="opprettArtikkel">Opprett Artikkel</button>
-    <div id="artikkelContainer"></div>
+    <div class="navigation">
+      <a href="index.html">Hjem</a>
+      <a href="#">Filter</a>
+      <a href="mineturer.html">Mineturer</a>
+    </div>
+  </header>
 
-    <script src="leggtilmineturer.js"></script>
-    <script src="lagentur.js"></script>
+  <main>
+    <div class="tour">
+        <img src="Bilder/Skitur.png" alt="Tur 1">
+        <div class="tour-info">
+          <div class="tour-description">
+            <h1><a href="tur1.html">Toftesetra Skitur</a></h1>
+            <p>Beskrivelse av tur 1.</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="tour">
+          <img src="Bilder/kanotur.jpg" alt="Tur 2">
+          <div class="tour-info">
+            <div class="tour-description">
+                <h1><a href="tur2.html">Kanotur</a></h1>
+              <p>Beskrivelse av tur 2. Beskrivelse av tur 2.
+                Beskrivelse av tur 2.
+                Beskrivelse av tur 2.
+                Beskrivelse av tur 2.
+                Beskrivelse av tur 2.
+                
+              </p>
+            </div>
+            
+          </div>
+        </div>
     
+        <div class="tour">
+          <img src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.6435-9/43034901_730684320617422_1955082685235855360_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=be3454&_nc_ohc=f5pZ3dIV6AsAX9twypH&_nc_ht=scontent-arn2-1.xx&oh=00_AfDiwY_ioqift6wTNhh7JKArSL5lWP_urx3Ycg25v6WAgA&oe=658413B5" alt="Tur 3">
+          <div class="tour-info">
+            <div class="tour-description">
+                <h1><a href="tur3.html">BaDboiMagnus</a></h1>
+              <p>Beskrivelse av tur 3.</p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="tour">
+          <img src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.6435-9/43034901_730684320617422_1955082685235855360_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=be3454&_nc_ohc=f5pZ3dIV6AsAX9twypH&_nc_ht=scontent-arn2-1.xx&oh=00_AfDiwY_ioqift6wTNhh7JKArSL5lWP_urx3Ycg25v6WAgA&oe=658413B5" alt="Tur 4">
+          <div class="tour-info">
+            <div class="tour-description">
+                <h1><a href="tur4.html">Tur 4</a></h1>
+              <p>Beskrivelse av tur 4.</p>
+            </div>
+          </div>
+        </div>
+    
+  </main>
+
+  <footer>
+    
+  </footer>
+
 </body>
 </html>

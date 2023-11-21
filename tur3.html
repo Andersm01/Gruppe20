@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tur 1 - RiveRolf</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 18px;
+    }
+
+    .navigation {
+      display: flex;
+      margin-right: 75%;
+      align-items: center;
+    }
+
+    .navigation > a {
+      margin-right: 10px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .tour {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .tour img {
+      width: 150px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .tour-info {
+      flex: 1;
+    }
+
+    .tour-description {
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: block;
+      padding: 8px 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 4px;
+      width: 50px;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+        <a href="index.html"><img src="https://images-platform.99static.com//8yM6syZlzBYKW840uJlMJ-V4Y4k=/264x145:1326x1207/fit-in/500x500/99designs-contests-attachments/75/75835/attachment_75835259" alt="BaijanTours Logo"></a>
+      </div>
+      <div class="navigation">
+        <a href="index.html">Hjem</a>
+        <a href="#">Filter</a>
+        <a href="mineturer.html">Mineturer</a>
+      </div>
+  </header>
+
+  <main>
+    <div class="tour">
+      <img src="https://images-platform.99static.com//8yM6syZlzBYKW840uJlMJ-V4Y4k=/264x145:1326x1207/fit-in/500x500/99designs-contests-attachments/75/75835/attachment_75835259" alt="Tur 1 - RiveRolf">
+      <div class="tour-info">
+        <h1 class="tour-title">RiveRolf</h1>
+        <div class="tour-description">
+          <p>Beskrivelse av tur 1.</p>
+        </div>
+        <a href="#" class="btn" onclick="leggTilITurerListe()">Bestill tur</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    
+  </footer>
+
+  <script>
+    function leggTilITurerListe() {
+      var turInfo = {
+        tittel: "RiveRolf",
+        beskrivelse: "Beskrivelse av tur 1.",
+        bildeUrl: "https://images-platform.99static.com//8yM6syZlzBYKW840uJlMJ-V4Y4k=/264x145:1326x1207/fit-in/500x500/99designs-contests-attachments/75/75835/attachment_75835259"
+        // Legg til flere detaljer om turen hvis nødvendig
+      };
+
+      var mineturer = JSON.parse(localStorage.getItem('mineturer')) || [];
+      mineturer.push(turInfo);
+      localStorage.setItem('mineturer', JSON.stringify(mineturer));
+
+      alert('Turen er lagt til i din tur-liste på mineturer!');
+    }
+  </script>
+
+</body>
+</html>
