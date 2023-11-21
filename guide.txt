@@ -1,0 +1,3 @@
+Dersom du skal endre bilder/navn osv på turene.
+1. Endre navn og bilde url i index.html. Lagre bilde "bilder" slik du ser til venstre. så referer slik som dette <img src="Bilder/Skitur.png" alt="Tur 1 - Toftsetra Skitur">.
+2. endre inne på tur1.html side, tilsvarende du endret i index.html. endre først i main deretter i javascript og skriv tilsvarende tittel osv.
