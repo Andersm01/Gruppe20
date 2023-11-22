@@ -114,34 +114,34 @@
 
   <main>
     <div class="tour">
-      <img src="Bilder/kanotur.jpg" alt="Tur 1 - Kanotur">
+      <img src="Bilder/kanotur.jpg" alt="Tur 2 - Kanotur">
       <div class="tour-info">
         <h1 class="tour-title">Kanotur</h1>
         <div class="tour-description">
-          <p>Beskrivelse av tur 1.</p>
+          <p>Kanotur av tur 2.</p>
         </div>
         <a href="#" class="btn" onclick="leggTilITurerListe()">Bestill tur</a>
       </div>
     </div>
   </main>
-
-  <footer>
-    
-  </footer>
-
+  
   <script>
     function leggTilITurerListe() {
+      var tittel = document.querySelector('.tour-title').textContent;
+      var beskrivelse = document.querySelector('.tour-description p').textContent;
+      var bildeUrl = document.querySelector('.tour img').getAttribute('src');
+  
       var turInfo = {
-        tittel: "Kanotur",
-        beskrivelse: "Beskrivelse av tur 1.",
-        bildeUrl: "Bilder/kanotur.jpg"
+        tittel: tittel,
+        beskrivelse: beskrivelse,
+        bildeUrl: bildeUrl
         // Legg til flere detaljer om turen hvis nødvendig
       };
-
+  
       var mineturer = JSON.parse(localStorage.getItem('mineturer')) || [];
       mineturer.push(turInfo);
       localStorage.setItem('mineturer', JSON.stringify(mineturer));
-
+  
       alert('Turen er lagt til i din tur-liste på mineturer!');
     }
   </script>

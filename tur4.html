@@ -114,34 +114,34 @@
 
   <main>
     <div class="tour">
-      <img src="https://images-platform.99static.com//8yM6syZlzBYKW840uJlMJ-V4Y4k=/264x145:1326x1207/fit-in/500x500/99designs-contests-attachments/75/75835/attachment_75835259" alt="Tur 1 - RiveRolf">
+      <img src="Bilder/grilling_i_fjell.jpg" alt="Tur 4 - Fjelltur med grilling">
       <div class="tour-info">
-        <h1 class="tour-title">RiveRolf</h1>
+        <h1 class="tour-title">Fjelltur med grilling</h1>
         <div class="tour-description">
-          <p>Beskrivelse av tur 1.</p>
+          <p>Kanotur av tur 4.</p>
         </div>
         <a href="#" class="btn" onclick="leggTilITurerListe()">Bestill tur</a>
       </div>
     </div>
   </main>
-
-  <footer>
-    
-  </footer>
-
+  
   <script>
     function leggTilITurerListe() {
+      var tittel = document.querySelector('.tour-title').textContent;
+      var beskrivelse = document.querySelector('.tour-description p').textContent;
+      var bildeUrl = document.querySelector('.tour img').getAttribute('src');
+  
       var turInfo = {
-        tittel: "RiveRolf",
-        beskrivelse: "Beskrivelse av tur 1.",
-        bildeUrl: "https://images-platform.99static.com//8yM6syZlzBYKW840uJlMJ-V4Y4k=/264x145:1326x1207/fit-in/500x500/99designs-contests-attachments/75/75835/attachment_75835259"
+        tittel: tittel,
+        beskrivelse: beskrivelse,
+        bildeUrl: bildeUrl
         // Legg til flere detaljer om turen hvis nødvendig
       };
-
+  
       var mineturer = JSON.parse(localStorage.getItem('mineturer')) || [];
       mineturer.push(turInfo);
       localStorage.setItem('mineturer', JSON.stringify(mineturer));
-
+  
       alert('Turen er lagt til i din tur-liste på mineturer!');
     }
   </script>
