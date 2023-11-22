@@ -24,16 +24,12 @@
       text-decoration: none;
       margin: 0 10px;
       font-size: 18px;
+      transition: color 0.3s ease; /* Overgang for fargeendring */
     }
 
-    .navigation {
-      display: flex;
-      margin-right: 75%;
-      align-items: center;
-    }
-
-    .navigation > a {
-      margin-right: 10px;
+    header a:hover {
+      color: #4CAF50; /* Endret farge ved hover */
+      text-decoration: underline; /* Legg til understrek ved hover */
     }
 
     .logo img {
@@ -59,6 +55,11 @@
       text-align: left;
       margin-bottom: 20px;
     }
+    .navigation {
+      display: flex;
+      margin-right: 80%;
+      align-items: center;
+    }
 
     .tour img {
       width: 150px;
@@ -73,29 +74,25 @@
     .tour-description {
       margin-bottom: 10px;
     }
+    
 
-    .btn {
-      display: block;
-      padding: 8px 16px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      text-align: center;
+    h1 a {
+      color: #333; /* Fjern blå/lilla farge for overskrifter */
+      transition: color 0.3s ease; /* Overgang for fargeendring */
       text-decoration: none;
-      font-size: 14px;
-      cursor: pointer;
-      border-radius: 4px;
-      width: 50px;
     }
 
-    .btn:hover {
-      background-color: #45a049;
+    h1 a:hover {
+      color: #4CAF50; /* Endret farge ved hover */
+      text-decoration: underline; /* Legg til understrek ved hover */
     }
 
     @media (max-width: 768px) {
       main {
         grid-template-columns: 1fr;
+
       }
+      
     }
   </style>
 </head>
@@ -114,52 +111,49 @@
 
   <main>
     <div class="tour">
-        <img src="Bilder/ski_i_fjell.jpg" alt="Tur 1">
-        <div class="tour-info">
-          <div class="tour-description">
-            <h1><a href="tur1.html">Skitur i fjellet</a></h1>
-            <p>Beskrivelse av tur 1.</p>
-          </div>
+      <img src="Bilder/ski_i_fjell.jpg" alt="Tur 1">
+      <div class="tour-info">
+        <div class="tour-description">
+          <h1><a href="tur1.html">Skitur på fjellet</a></h1>
+          <p>Beskrivelse av tur 1.</p>
         </div>
       </div>
-  
-      <div class="tour">
-          <img src="Bilder/kanotur.jpg" alt="Tur 2">
-          <div class="tour-info">
-            <div class="tour-description">
-                <h1><a href="tur2.html">Kanotur</a></h1>
-              <p>Beskrivelse av tur 2. Beskrivelse av tur 2.
-                Beskrivelse av tur 2.
-                Beskrivelse av tur 2.
-                Beskrivelse av tur 2.
-                Beskrivelse av tur 2.
-                
-              </p>
-            </div>
-            
-          </div>
+    </div>
+
+    <div class="tour">
+      <img src="Bilder/kanotur.jpg" alt="Tur 2">
+      <div class="tour-info">
+        <div class="tour-description">
+          <h1><a href="tur2.html">Kanotur</a></h1>
+          <p>Beskrivelse av tur 2. Beskrivelse av tur 2.
+            Beskrivelse av tur 2.
+            Beskrivelse av tur 2.
+            Beskrivelse av tur 2.
+            Beskrivelse av tur 2.
+          </p>
         </div>
-    
-        <div class="tour">
-          <img src="Bilder/utsikt_over_fjord.jpg" alt="Tur 3">
-          <div class="tour-info">
-            <div class="tour-description">
-                <h1><a href="tur3.html">Fjelltur med vakker utsikt</a></h1>
-              <p>Beskrivelse av tur 3.</p>
-            </div>
-          </div>
+      </div>
+    </div>
+
+    <div class="tour">
+      <img src="Bilder/utsikt_over_fjord.jpg" alt="Tur 3">
+      <div class="tour-info">
+        <div class="tour-description">
+          <h1><a href="tur3.html">Fjelltur med vakker utsikt</a></h1>
+          <p>Beskrivelse av tur 3.</p>
         </div>
-    
-        <div class="tour">
-          <img src="Bilder/grilling_i_fjell.jpg" alt="Tur 4">
-          <div class="tour-info">
-            <div class="tour-description">
-                <h1><a href="tur4.html">Fjelltur med grilling</a></h1>
-              <p>Beskrivelse av tur 4.</p>
-            </div>
-          </div>
+      </div>
+    </div>
+
+    <div class="tour">
+      <img src="Bilder/grilling_i_fjell.jpg" alt="Tur 4">
+      <div class="tour-info">
+        <div class="tour-description">
+          <h1><a href="tur4.html">Fjelltur med grilling</a></h1>
+          <p>Beskrivelse av tur 4.</p>
         </div>
-    
+      </div>
+    </div>
   </main>
 
   <footer>
