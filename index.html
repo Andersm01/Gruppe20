@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Salg av turer</title>
   <style>
+    /*header style */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -39,12 +40,22 @@
       overflow: hidden;
     }
 
+    .navigation {
+      display: flex;
+      margin-right: 80%;
+      align-items: center;
+    }
+
+    /*Header style slutt*/
+
     main {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       padding: 20px;
     }
+    
+    
 
     .tour {
       display: flex;
@@ -54,11 +65,6 @@
       padding: 10px;
       text-align: left;
       margin-bottom: 20px;
-    }
-    .navigation {
-      display: flex;
-      margin-right: 80%;
-      align-items: center;
     }
 
     .tour img {
@@ -70,6 +76,11 @@
     .tour-info {
       flex: 1;
     }
+
+    
+    
+
+    
 
     .tour-description {
       margin-bottom: 10px;
@@ -86,6 +97,8 @@
       color: #4CAF50; /* Endret farge ved hover */
       text-decoration: underline; /* Legg til understrek ved hover */
     }
+
+    
 
     @media (max-width: 768px) {
       main {
@@ -106,11 +119,15 @@
       <a href="index.html">Hjem</a>
       <a href="#">Filter</a>
       <a href="mineturer.html">Mine Turer</a>
+      <a href="opprettside.html">Opprettside</a>
     </div>
   </header>
 
-  <main>
-    <div class="tour">
+  <main id="turer-liste">
+  
+    <!-- Her vil de lagrede turene vises -->
+    <!-- De fire eksisterende turene (tur1, tur2, tur3, tur4) skal også være her -->
+    <div class="tour" id="tur1">
       <img src="Bilder/ski_i_fjell.jpg" alt="Tur 1">
       <div class="tour-info">
         <div class="tour-description">
@@ -120,22 +137,17 @@
       </div>
     </div>
 
-    <div class="tour">
+    <div class="tour" id="tur2">
       <img src="Bilder/kanotur.jpg" alt="Tur 2">
       <div class="tour-info">
         <div class="tour-description">
           <h1><a href="tur2.html">Kanotur</a></h1>
-          <p>Beskrivelse av tur 2. Beskrivelse av tur 2.
-            Beskrivelse av tur 2.
-            Beskrivelse av tur 2.
-            Beskrivelse av tur 2.
-            Beskrivelse av tur 2.
-          </p>
+          <p>Beskrivelse av tur 2. Beskrivelse av tur 2. ...</p>
         </div>
       </div>
     </div>
 
-    <div class="tour">
+    <div class="tour" id="tur3">
       <img src="Bilder/utsikt_over_fjord.jpg" alt="Tur 3">
       <div class="tour-info">
         <div class="tour-description">
@@ -145,7 +157,7 @@
       </div>
     </div>
 
-    <div class="tour">
+    <div class="tour" id="tur4">
       <img src="Bilder/grilling_i_fjell.jpg" alt="Tur 4">
       <div class="tour-info">
         <div class="tour-description">
@@ -154,11 +166,60 @@
         </div>
       </div>
     </div>
+    
+    <div id="lagredeTurer"></div>
   </main>
 
+  
+
+  </div>
+
   <footer>
-    
+    <!-- ... footer hvis nødvendig ... -->
   </footer>
+
+  <script>
+    function leggTilLagredeTurer() {
+      var lagredeTurer = JSON.parse(localStorage.getItem('lagredeTurer')) || [];
+
+      var lagredeTurerElement = document.getElementById('lagredeTurer');
+
+      lagredeTurer.forEach(function(tur, index) {
+        var turElement = document.createElement('div');
+        turElement.classList.add('tour');
+        turElement.innerHTML = `
+          <img src="${tur.bildeUrl}" alt="${tur.tittel}">
+          <div class="tour-info">
+            <div class="tour-description">
+              <h1><a href="#">${tur.tittel}</a></h1>
+              <p>${tur.beskrivelse}</p>
+              <button onclick="fjernTur(${index})">Fjern</button>
+            </div>
+          </div>
+        `;
+        lagredeTurerElement.appendChild(turElement);
+      });
+    }
+
+    function fjernTur(index) {
+      var lagredeTurer = JSON.parse(localStorage.getItem('lagredeTurer')) || [];
+
+      if (confirm('Er du sikker på at du vil fjerne denne turen?')) {
+        lagredeTurer.splice(index, 1);
+        localStorage.setItem('lagredeTurer', JSON.stringify(lagredeTurer));
+
+        var lagredeTurerElement = document.getElementById('lagredeTurer');
+        lagredeTurerElement.innerHTML = ''; // Tømmer beholderen
+
+        // Oppdater visningen ved å legge til de gjenværende turene igjen
+        leggTilLagredeTurer();
+      }
+    }
+
+    // Kjør funksjonen for å legge til lagrede turer når siden lastes
+    leggTilLagredeTurer();
+  </script>
+
 
 </body>
 </html>

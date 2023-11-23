@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Oprettside</title>
+  <!-- Samme CSS-styling som i index.html -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 18px;
+      transition: color 0.3s ease; /* Overgang for fargeendring */
+    }
+
+    header a:hover {
+      color: #4CAF50; /* Endret farge ved hover */
+      text-decoration: underline; /* Legg til understrek ved hover */
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .navigation {
+      display: flex;
+      margin-right: 80%;
+      align-items: center;
+    }
+
+    main {
+      padding: 20px;
+      display: grid;
+      gap: 15px;
+      max-width: 600px; /* Legg til maksimal bredde for å begrense skjemaet */
+      margin-right: 0 auto; /* Sentrer skjemaet */
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+        <a href="index.html"><img src="https://images-platform.99static.com//8yM6syZlzBYKW840uJlMJ-V4Y4k=/264x145:1326x1207/fit-in/500x500/99designs-contests-attachments/75/75835/attachment_75835259" alt="BaijanTours Logo"></a>
+      </div>
+      <div class="navigation">
+        <a href="index.html">Hjem</a>
+        <a href="#">Filter</a>
+        <a href="mineturer.html">Mineturer</a>
+        <a href="opprettside.html">Opprettside</a>
+      </div>
+  </header>
+
+  <main>
+    <!-- Skjema for opprettelse av tur -->
+    <form id="opprettTurSkjema">
+      <!-- Elementer for turinformasjon -->
+      <input type="text" id="turTittel" placeholder="Tittel">
+      <textarea id="turBeskrivelse" placeholder="Beskrivelse"></textarea>
+      <input type="text" id="turBildeUrl" placeholder="Bilde URL">
+      <!-- Legg til flere elementer om nødvendig -->
+
+      <!-- Knapp for å opprette turen -->
+      <button type="button" onclick="opprettTur()">Opprett tur</button>
+    </form>
+  </main>
+
+  <footer>
+    <!-- Footer-elementer om nødvendig -->
+    <!-- ... -->
+  </footer>
+
+  <script>
+    function opprettTur() {
+      // Hent verdier fra skjemaet
+      var tittel = document.getElementById('turTittel').value;
+      var beskrivelse = document.getElementById('turBeskrivelse').value;
+      var bildeUrl = document.getElementById('turBildeUrl').value;
+
+      // Opprett turinfo-objektet
+      var turInfo = {
+        tittel: tittel,
+        beskrivelse: beskrivelse,
+        bildeUrl: bildeUrl
+        // Legg til flere detaljer om turen om nødvendig
+      };
+
+      // Hent lagrede turer eller opprett ny liste
+      var lagredeTurer = JSON.parse(localStorage.getItem('lagredeTurer')) || [];
+      lagredeTurer.push(turInfo);
+
+      // Lagre den opprettede turen
+      localStorage.setItem('lagredeTurer', JSON.stringify(lagredeTurer));
+      
+      // Gi en tilbakemelding eller naviger til index.html
+      alert('Turen er opprettet!');
+      window.location.href = 'index.html'; // Naviger til index.html
+    }
+  </script>
+
+</body>
+</html>
