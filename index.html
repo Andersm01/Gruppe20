@@ -98,6 +98,30 @@
       text-decoration: underline; /* Legg til understrek ved hover */
     }
 
+    button {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  /* Stiler for Fjern-knappen (Endres til rød) */
+  button.fjern {
+    background-color: #ff0000; /* Rød farge */
+    color: #fff;
+  }
+
+  /* Stiler for Bestill tur-knappen (Endres til grønn) */
+  button.bestill {
+    background-color: #008000; /* Grønn farge */
+    color: #fff;
+  }
+
     
 
     @media (max-width: 768px) {
@@ -118,8 +142,8 @@
     <div class="navigation">
       <a href="index.html">Hjem</a>
       <a href="#">Filter</a>
-      <a href="mineturer.html">Mine Turer</a>
-      <a href="opprettside.html">Opprett Side</a>
+      <a href="mineturer.html">Mineturer</a>
+      <a href="opprettside.html">Opprettside</a>
     </div>
   </header>
 
@@ -179,27 +203,43 @@
   </footer>
 
   <script>
-    function leggTilLagredeTurer() {
-      var lagredeTurer = JSON.parse(localStorage.getItem('lagredeTurer')) || [];
+    function leggTilTilMineturer(index) {
+    var lagredeTurer = JSON.parse(localStorage.getItem('lagredeTurer')) || [];
+    var valgtTur = lagredeTurer[index];
 
-      var lagredeTurerElement = document.getElementById('lagredeTurer');
+    var mineturer = JSON.parse(localStorage.getItem('mineturer')) || [];
+    mineturer.push(valgtTur);
+    localStorage.setItem('mineturer', JSON.stringify(mineturer));
 
-      lagredeTurer.forEach(function(tur, index) {
-        var turElement = document.createElement('div');
-        turElement.classList.add('tour');
-        turElement.innerHTML = `
-          <img src="${tur.bildeUrl}" alt="${tur.tittel}">
-          <div class="tour-info">
-            <div class="tour-description">
-              <h1><a href="#">${tur.tittel}</a></h1>
-              <p>${tur.beskrivelse}</p>
-              <button onclick="fjernTur(${index})">Fjern</button>
-            </div>
-          </div>
-        `;
-        lagredeTurerElement.appendChild(turElement);
-      });
-    }
+    alert('Turen er lagt til i Mineturer-siden.');
+
+    // Naviger til mineturer.html etter å ha lagt til turen
+    window.location.href = 'mineturer.html';
+  }
+
+  function leggTilLagredeTurer() {
+  var lagredeTurer = JSON.parse(localStorage.getItem('lagredeTurer')) || [];
+  var lagredeTurerElement = document.getElementById('lagredeTurer');
+
+  lagredeTurer.forEach(function(tur, index) {
+    var turElement = document.createElement('div');
+    turElement.classList.add('tour');
+    turElement.innerHTML = `
+      <img src="${tur.bildeUrl}" alt="${tur.tittel}">
+      <div class="tour-info">
+        <div class="tour-description">
+          <h1><a href="#">${tur.tittel}</a></h1>
+          <p>${tur.beskrivelse}</p>
+          <button class="fjern" onclick="fjernTur(${index})">Fjern</button>
+          <button class="bestill" onclick="leggTilTilMineturer(${index})">Bestill tur</button>
+        </div>
+      </div>
+    `;
+
+    lagredeTurerElement.appendChild(turElement);
+  });
+}
+
 
     function fjernTur(index) {
       var lagredeTurer = JSON.parse(localStorage.getItem('lagredeTurer')) || [];
