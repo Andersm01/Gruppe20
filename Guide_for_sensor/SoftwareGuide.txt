@@ -5,10 +5,12 @@ Software eksamen:
 se prototype: (testet og fungerer i chrome, edge og program (feks Visual Stuido Code))
 - For å se prototypen. Åpne den "index" filen som er lagret som HTML-fil.
 - For å se html kode: høyre klikk på nettsiden og trykk vis sidekilde. 
+- Gå inn på https://code.visualstudio.com/ og last ned programmet. følg så instruksene på setup-et. (eller annet program for kode lesing)
+- åpne filene i VS code.
 - For javascript kode og testkoder sjekk andre filer i mappen. Javascript filene er lagret som .js filer, testene heter .test. Her må man ha et kode programm som kan kjøre kode (eks. Visual stuido code, sublime text, notepad osv.) 
 
 Kjøre testene: 
--Last ned node.js: https://nodejs.org/en/download  (versjon node-v20.10.0-x64.msi for windows)
+-Last ned node.js: https://nodejs.org/en/download  (versjon node-v20.10.0-x64.msi for windows) i nettleseren
 	- følg veiledning av node.js nedlastningen.
 - Åpne commando prompt/ledetekst (cmd) / terminal.
 	- Skriv: npm init -y 
