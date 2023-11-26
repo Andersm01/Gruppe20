@@ -1,38 +1,36 @@
-// opprettside.test.js
-
 const { opprettTur } = require('./opprettside.js');
 
-// Mock localStorage
+// Mocker localStorage
 const localStorageMock = {
   getItem: jest.fn(),
   setItem: jest.fn(),
 };
 
-// Opprett et 'window' objekt og legg til mock localStorage
+// Oppretter et 'window' objekt og legger til mock localStorage
 global.window = Object.create(window);
 Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,
 });
 
-// Mock the necessary DOM elements
+// Mocker de nødvendige DOM-elementene
 document.body.innerHTML = `
   <input id="turTittel" value="TestTur">
   <textarea id="turBeskrivelse" value="TestBeskrivelse"></textarea>
   <input id="turBildeUrl" value="test.jpg">
 `;
 
-// Mock the window.alert function
+// Mocker window.alert funksjonen
 const alertSpy = jest.spyOn(window, 'alert').mockImplementationOnce(() => {});
 
 describe('Function: opprettTur', () => {
-  test('should create a tour and store it in localStorage without redirecting', () => {
-    // Mock localStorage.getItem to return an empty array as a string
+  test('Skal lage en tur og lagre den i localStorage', () => {
+    // Mocker localStorage.getItem til å returnere en tom array som en string
     localStorageMock.getItem.mockReturnValueOnce('[]');
 
-    // Call the function to be tested
+    // Kaller funksjonen som skal testes
     opprettTur();
 
-    // Assertions
+    // Forventninger
     expect(localStorageMock.setItem).toHaveBeenCalledTimes(1);
     expect(localStorageMock.setItem).toHaveBeenCalledWith(
       'lagredeTurer',

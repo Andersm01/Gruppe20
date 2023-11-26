@@ -12,13 +12,13 @@ const {
     setItem: jest.fn(),
   };
 
-  // Mock the necessary DOM elements
+// Mocker nødvendige DOM-elementer
 document.body.innerHTML = '<div id="lagredeTurer"></div>';
 
-// Mock the window.confirm function
+// Mocker window.confirm funksjonen
 const confirmSpy = jest.spyOn(window, 'confirm').mockReturnValueOnce(true);
 
-// Mock the removeChild function
+// Mocker removeChild funksjonen
 const lagredeTurerElement = document.getElementById('lagredeTurer');
 const removeChildSpy = jest.spyOn(lagredeTurerElement, 'removeChild');
 
@@ -40,11 +40,11 @@ const removeChildSpy = jest.spyOn(lagredeTurerElement, 'removeChild');
   });
   
 describe('Function: fjernTur', () => {
-    test('should remove a tour from localStorage and update the DOM', () => {
-        // Mock setup
+    test('Skal fjerne en tur fra localStorages og oppdatere DOM', () => {
+        // Mocker oppsettet
         jest.spyOn(window, 'confirm').mockReturnValue(true);
 
-        // Mock localStorage getItem method
+        // Mocker localStorage getItem metode
         jest.spyOn(Storage.prototype, 'getItem').mockImplementation((key) => {
             if (key === 'lagredeTurer') {
                 return JSON.stringify([{ tittel: 'TestTur', beskrivelse: 'TestBeskrivelse', bildeUrl: 'test.jpg' }]);
@@ -52,38 +52,37 @@ describe('Function: fjernTur', () => {
             return null;
         });
 
-        // Mock localStorage setItem method
+        // Mocker localStorage setItem metode
         jest.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {});
 
-        // Execute the function to be tested
+        // Utfører funksjonen som skal testes
         fjernTur(0);
 
-        // Expectations
+        // Forventninger
         expect(localStorage.setItem).toHaveBeenCalledWith('lagredeTurer', '[]');
-        // You can add more expectations based on the behavior of fjernTur function
     });
 });
   
 describe('Function: leggTilTilMineturer', () => {
-    test('should add a tour to Mineturer and redirect to mineturer.html', async () => {
-      // Mock window.location.assign using jsdom's reconfigure method
+    test('Skal legge til en tur i Mineturer og ta deg til siden mineturer.html', async () => {
+      // Mocker window.location.assign ved å bruke jsdom's reconfigure metode
       const { location } = window;
       delete window.location;
       window.location = { ...location, assign: jest.fn() };
   
-      // Mock confirm
+      // Bekrefter mocken
       const confirmMock = jest.spyOn(window, 'confirm').mockReturnValueOnce(true);
   
-      // Call the function to be tested
+      // Kaller på funksjonen som skal testes
       leggTilTilMineturer(0);
   
-      // Wait for the event loop to process the click or other asynchronous actions
+      // Venter på at event loopen registrerer klikket eller andre asynkrone handlinger
       await new Promise(resolve => setTimeout(resolve, 0));
   
-      // Check if window.location.assign was called with the correct argument
+      // Sjekk om window.location.assign ble kalt med riktig argument
       expect(window.location.assign).toHaveBeenCalledWith('mineturer.html');
   
-      // Restore the spies
+      // Gjenoppretter spies
       confirmMock.mockRestore();
     });
   });

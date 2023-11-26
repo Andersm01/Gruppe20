@@ -1,15 +1,15 @@
 jest.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {});
 const { leggTilITurerListe } = require('./tur.js');
     
-// Mock localStorage for testing purposes
+// Mocker localStorage for testingen
 global.localStorage = {
     getItem: jest.fn(),
     setItem: jest.fn(),
 };
     
 describe('Function: leggTilITurerListe', () => {
-    test('should add a tour to Mineturer and display an alert', () => {
-    // Mock DOM elements
+    test('Skal legge til en tur i Mineturer og vise en varsling', () => {
+    // Mocker DOM-elementer
     document.body.innerHTML = `
         <div class="tour">
         <img src="test.jpg" alt="TestTur">
