@@ -1,0 +1,16 @@
+Software eksamen:
+
+- Pakk ut mappe
+
+se prototype: (testet og fungerer i chrome, edge og program (feks Visual Stuido Code))
+- For å se prototypen. Åpne den "index" filen som er lagret som HTML-fil.
+- For å se html kode: høyre klikk på nettsiden og trykk vis sidekilde. For javascript kode og testkoder sjekk andre filer i mappen. Javascript filene er lagret som .js filer, testene heter .test.  
+
+Kjøre testene: 
+-Last ned node.js: https://nodejs.org/en/download  (versjon node-v20.10.0-x64.msi for windows)
+	- følg veiledning av node.js nedlastningen.
+- Åpne commando prompt/ledetekst (cmd) / terminal.
+	- Skriv: npm init -y 
+- finn filplasseringen til mappen: skriv: cd "filplasseringing din" (eks: C:\Users\ander\Desktop\Software Engineering\Eksamen\Gruppe20).
+- Skriv deretter inn: npm test
+- For se kode teksten: kan åpnes fra fil direkte fra mappe eller åpnes i program (feks Visual Stuido Code).
