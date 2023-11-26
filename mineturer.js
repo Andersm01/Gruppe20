@@ -1,3 +1,4 @@
+// mineturer.js
 window.onload = function() {
     var turerDiv = document.getElementById('turer-liste');
     var mineturer = JSON.parse(localStorage.getItem('mineturer')) || [];

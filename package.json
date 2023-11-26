@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^22.1.0"
+  },
+  "dependencies": {
+    "text-encoding": "^0.7.0",
+    "util": "^0.12.5"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

@@ -1,3 +1,4 @@
+// tur.js
 function leggTilITurerListe() {
     var tittel = document.querySelector('.tour-title').textContent;
     var beskrivelse = document.querySelector('.tour-description p').textContent;
@@ -16,3 +17,5 @@ function leggTilITurerListe() {
 
     alert('Turen er lagt til i din tur-liste på mineturer!');
   }
+
+  module.exports = { leggTilITurerListe };

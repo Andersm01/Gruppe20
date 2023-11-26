@@ -1,3 +1,4 @@
+// opprettside.js
 function opprettTur() {
     // Hent verdier fra skjemaet
     var tittel = document.getElementById('turTittel').value;
@@ -21,5 +22,9 @@ function opprettTur() {
     
     // Gi en tilbakemelding eller naviger til index.html
     alert('Turen er opprettet!');
-    window.location.href = 'index.html'; // Naviger til index.html
+    if (process.env.NODE_ENV !== 'test') {
+      window.location.href = 'index.html'; // Naviger til index.html
   }
+  }
+
+  module.exports = { opprettTur };

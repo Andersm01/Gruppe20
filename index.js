@@ -1,3 +1,4 @@
+// index.js
 function leggTilTilMineturer(index) {
     var lagredeTurer = JSON.parse(localStorage.getItem('lagredeTurer')) || [];
     var valgtTur = lagredeTurer[index];
@@ -9,11 +10,13 @@ function leggTilTilMineturer(index) {
     alert('Turen er lagt til i Mineturer-siden.');
 
     // Naviger til mineturer.html etter å ha lagt til turen
-    window.location.href = 'mineturer.html';
+    window.location.assign('mineturer.html');
   }
 
   function leggTilLagredeTurer() {
   var lagredeTurer = JSON.parse(localStorage.getItem('lagredeTurer')) || [];
+  // In your actual code, use localStorage like this:
+
   var lagredeTurerElement = document.getElementById('lagredeTurer');
 
   lagredeTurer.forEach(function(tur, index) {
@@ -53,3 +56,5 @@ function leggTilTilMineturer(index) {
 
     // Kjør funksjonen for å legge til lagrede turer når siden lastes
     leggTilLagredeTurer();
+
+    module.exports = { leggTilLagredeTurer, fjernTur, leggTilTilMineturer };
