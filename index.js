@@ -26,7 +26,7 @@ function leggTilTilMineturer(index) {
       <img src="${tur.bildeUrl}" alt="${tur.tittel}">
       <div class="tour-info">
         <div class="tour-description">
-          <h1><a href="#">${tur.tittel}</a></h1>
+          <h1>${tur.tittel}</h1>
           <p>${tur.beskrivelse}</p>
           <button class="fjern" onclick="fjernTur(${index})">Fjern</button>
           <button class="bestill" onclick="leggTilTilMineturer(${index})">Bestill tur</button>
