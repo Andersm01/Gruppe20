@@ -24,7 +24,7 @@ const removeChildSpy = jest.spyOn(lagredeTurerElement, 'removeChild');
 
   
   describe('Function: leggTilLagredeTurer', () => {
-    test('should add tours to the DOM', () => {
+    test('Skal legge til turer i DOM', () => {
       document.body.innerHTML = '<div id="lagredeTurer"></div>';
       localStorage.getItem.mockReturnValueOnce(
         JSON.stringify([{ tittel: 'TestTur', beskrivelse: 'TestBeskrivelse', bildeUrl: 'test.jpg' }])
