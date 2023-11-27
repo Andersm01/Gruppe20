@@ -21,10 +21,9 @@ function opprettTur() {
     localStorage.setItem('lagredeTurer', JSON.stringify(lagredeTurer));
     
     // Gi en tilbakemelding eller naviger til index.html
-    alert('Turen er opprettet!');
-    if (process.env.NODE_ENV !== 'test') {
+    alert('Turen er opprettet!')
       window.location.href = 'index.html'; // Naviger til index.html
-  }
+  
   }
 
   module.exports = { opprettTur };
